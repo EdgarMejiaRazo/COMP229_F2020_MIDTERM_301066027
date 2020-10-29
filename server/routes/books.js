@@ -1,3 +1,7 @@
+/****************************************************************
+       * COMP229 EDGAR MEJIA RAZO 301066027 MIDTERM F2020 *
+     ***************************************************************/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -148,3 +152,6 @@ router.get('/delete/:id', (req, res, next) => {
 
 
 module.exports = router;
+ /****************************************************************
+       * COMP229 EDGAR MEJIA RAZO 301066027 MIDTERM F2020 *
+     ***************************************************************/

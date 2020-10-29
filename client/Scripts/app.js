@@ -111,7 +111,9 @@ $.fn.pageMe = function(opts){
       window.location.assign("/books");
     }
   });
-
+   /****************************************************************
+  * COMP229 EDGAR MEJIA RAZO 301066027 MIDTERM F2020 *
+***************************************************************/
  /* pagination code *///////////////////
   $('#myTable').pageMe(
     {pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:6}
