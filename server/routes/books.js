@@ -99,15 +99,16 @@ router.post('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-
-    let newBook = book({
+    let id = req.params.id
+    let updatedBook = book({
+      "_id": id,
       "Title": req.body.Title,
       "Price": req.body.Price,
       "Author": req.body.Author,
       "Genre": req.body.Genre
   });
 
-  book.create(newBook, (err, Book) =>{
+  book.updateOne({_id: id},updatedBook, (err, Book) =>{
       if(err)
       {
           console.log(err);
