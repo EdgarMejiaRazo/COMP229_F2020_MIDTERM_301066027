@@ -45,14 +45,14 @@ router.post('/add', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
 
-    /*let newBook = Book({
+    let newBook = book({
       "Title": req.body.Title,
-      "price": req.body.Price,
+      "Price": req.body.Price,
       "Author": req.body.Author,
       "Genre": req.body.Genre
   });
 
-  Book.create(newBook, (err, Book) =>{
+  book.create(newBook, (err, Book) =>{
       if(err)
       {
           console.log(err);
@@ -63,7 +63,7 @@ router.post('/add', (req, res, next) => {
           // refresh the book list
           res.redirect('/books');
       }
-  });*/
+  });
 
 });
 
@@ -74,10 +74,17 @@ router.get('/:id', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
     
-    book.findById()
-          //show the edit view
-          res.render('books/details', {title: 'Edit Contact', books: "", 
-        })
+    book.findById(req.params.id, (err, edit)=>{
+      if(err)
+      {
+      console.log(err);
+          res.end(err);
+      }
+      else 
+      {
+        res.render("book/details", {title:"somthing here", books: edit})
+      }
+      })
       
 
 });
