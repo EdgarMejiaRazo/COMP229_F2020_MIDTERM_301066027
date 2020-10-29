@@ -2,6 +2,7 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+const books = require('../models/books');
 
 // define the book model
 let book = require('../models/books');
@@ -30,6 +31,11 @@ router.get('/add', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
 
+    res.render('books/details', {title: 'Add Book' ,
+    books: "",
+
+    }) 
+
 });
 
 // POST process the Book Details page and create a new Book - CREATE
@@ -39,14 +45,41 @@ router.post('/add', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
 
+    /*let newBook = Book({
+      "Title": req.body.Title,
+      "price": req.body.Price,
+      "Author": req.body.Author,
+      "Genre": req.body.Genre
+  });
+
+  Book.create(newBook, (err, Book) =>{
+      if(err)
+      {
+          console.log(err);
+          res.end(err);
+      }
+      else
+      {
+          // refresh the book list
+          res.redirect('/books');
+      }
+  });*/
+
 });
 
-// GET the Book Details page in order to edit an existing Book
+// GET the Book Details page in order to edit an existing Book 
 router.get('/:id', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
      *****************/
+    
+    book.findById()
+          //show the edit view
+          res.render('books/details', {title: 'Edit Contact', books: "", 
+        })
+      
+
 });
 
 // POST - process the information passed from the details form and update the document
