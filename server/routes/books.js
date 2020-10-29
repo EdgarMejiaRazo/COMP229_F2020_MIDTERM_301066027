@@ -73,19 +73,23 @@ router.get('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    
-    book.findById(req.params.id, (err, edit)=>{
-      if(err)
-      {
-      console.log(err);
-          res.end(err);
-      }
-      else 
-      {
-        res.render("book/details", {title:"somthing here", books: edit})
-      }
-      })
-      
+//let id = req.params.id;
+
+
+    book.findById(req.params.id, (err, bookToEdit) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            //show the edit view
+             res.render('books/details', {title: 'Edit Book',
+             books: bookToEdit
+            })
+        }
+    });
 
 });
 
@@ -104,6 +108,21 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+
+    let id = req.params.id;
+
+    book.remove({_id: id}, (err) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+             // refresh the book list
+             res.redirect('/books');
+        }
+    });
 });
 
 
