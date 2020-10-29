@@ -112,7 +112,7 @@ $.fn.pageMe = function(opts){
     }
   });
 
- /* pagination code */
+ /* pagination code *///////////////////
   $('#myTable').pageMe(
     {pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:6}
     );
